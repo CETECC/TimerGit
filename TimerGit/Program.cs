@@ -11,19 +11,33 @@ namespace TimerGit
     {
         static void Main(string[] args)
         {
-            Console.Write("Quantos segundos deseja? ");
+            Console.Write("De qual numero deseja comecar? ");
+            string strInicio = Console.ReadLine();
+
+            Console.Write("Em qual numero deseja terminar? ");
             string strTempo = Console.ReadLine();
 
+            int inicio = int.Parse(strInicio);
             int tempo = int.Parse(strTempo);
 
-            for (int i = 0; i < tempo; i++)
+            for (int i = inicio; i < tempo; i++)
             {
+                if (i % 2 == 0)
+                {
+                    Console.ForegroundColor = ConsoleColor.Green;
+                }
+                else
+                {
+                    Console.ForegroundColor = ConsoleColor.Yellow;
+                }
                 Console.WriteLine(i);
                 Thread.Sleep(1000);
             }
 
+            Console.ResetColor();
+
             Console.WriteLine();
-            Console.WriteLine("Encerrado após {0} segundos.", tempo);
+            Console.WriteLine("Encerrado no contador {0}.", tempo);
         }
     }
 }
